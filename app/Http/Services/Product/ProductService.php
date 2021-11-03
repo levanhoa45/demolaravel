@@ -8,7 +8,7 @@ use App\Models\Product;
 
 class ProductService
 {
-    const LIMIT = 8;
+    const LIMIT = 16;
 
     public function get($page = null)
     {
