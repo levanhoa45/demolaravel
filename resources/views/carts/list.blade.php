@@ -101,22 +101,22 @@
 
                                 <div class="bor8 bg0 m-b-12">
                                     <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" 
-                                    name="name" placeholder="Tên khách hàng">
+                                    name="name" placeholder="Tên khách hàng" required>
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
                                     <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" 
-                                    name="phone" placeholder="Số điện thoại">
+                                    name="phone" placeholder="Số điện thoại" required>
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
                                     <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" 
-                                    name="address" placeholder="Địa chỉ">
+                                    name="address" placeholder="Địa chỉ" required>
                                 </div>
 
                                 <div class="bor8 bg0 m-b-22">
                                     <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" 
-                                    name="email" placeholder="Email">
+                                    name="email" placeholder="Email" required>
                                 </div>
                                     
                             </div>

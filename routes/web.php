@@ -50,3 +50,4 @@ Route::post('add-cart', [App\Http\Controllers\CartController::class, 'index']);
 Route::get('carts', [App\Http\Controllers\CartController::class, 'show']);
 Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
 Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
+Route::get('san-pham/carts', [App\Http\Controllers\CartController::class, 'addCart']);
