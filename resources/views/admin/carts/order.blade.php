@@ -4,24 +4,26 @@
     <table class="table">
         <thead>
         <tr>
-            <th style="width: 50px">ID</th>
+            <th>Đơn Hàng</th>
             <th>Tên Khách Hàng</th>
             <th>Số Điện Thoại</th>
             <th>Địa Chỉ</th>
             <th>Email</th>
+            <th>Ngày Đặt Hàng</th>
             <th style="width: 100px">&nbsp;</th>
         </tr>
         </thead>
         <tbody>
-            @foreach($customers as $key => $customer)
+            @foreach($orders as $key => $order)
             <tr>
-                <td>{{ $customer->id }}</td>
-                <td>{{ $customer->name }}</td>
-                <td>{{ $customer->phone }}</td>
-                <td>{{ $customer->address }}</td>
-                <td>{{ $customer->email }}</td>
+                <td style="text-align: left">{{ $order->id }}</td>
+                <td>{{ $order->name }}</td>
+                <td>{{ $order->phone }}</td>
+                <td>{{ $order->address }}</td>
+                <td>{{ $order->email }}</td>
+                <td>{{ $order->created_at }}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/admin/customers/view/{{ $customer->id }}">
+                    <a class="btn btn-primary btn-sm" href="/admin/orders/view/{{ $order->id }}">
                         <i class="fas fa-eye"></i>
                     </a>
                 </td>
@@ -31,6 +33,6 @@
     </table>
 
     <div class="card-footer clearfix">
-        {!! $customers->links() !!}
+        {!! $orders->links() !!}
     </div>
 @endsection

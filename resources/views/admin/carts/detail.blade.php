@@ -3,10 +3,10 @@
 @section('content')
     <div class="customer mt-3">
         <ul>
-            <li>Tên Khách Hàng: <strong>{{ $customer->name }}</strong></li>
-            <li>Số Điện Thoại: <strong>{{ $customer->phone }}</strong></li>
-            <li>Địa Chỉ: <strong>{{ $customer->address }}</strong></li>
-            <li>Email: <strong>{{ $customer->email }}</strong></li>
+            <li>Tên Khách Hàng: <strong>{{ $order->name }}</strong></li>
+            <li>Số Điện Thoại: <strong>{{ $order->phone }}</strong></li>
+            <li>Địa Chỉ: <strong>{{ $order->address }}</strong></li>
+            <li>Email: <strong>{{ $order->email }}</strong></li>
         </ul>
     </div>
 
@@ -20,20 +20,20 @@
                 <th class="column-4">Quantity</th>
                 <th class="column-5">Total</th>
             </tr>
-            @foreach($carts as $key => $cart)
+            @foreach($orderItems as $key => $orderItem)
             @php
-                $price = $cart->price * $cart->pty;
+                $price = $orderItem->price * $orderItem->pty;
                 $total += $price;
             @endphp
             <tr>
                 <td class="column-1">
                     <div class="how-itemcart1">
-                        <img src="{{ $cart->product->img }}" alt="IMG" style="width: 100px">
+                        <img src="{{ $orderItem->product->img }}" alt="IMG" style="width: 100px">
                     </div>
                 </td>
-                <td class="column-2">{{ $cart->product->name }}</td>
-                <td class="column-3">{{ number_format($cart->price, 0, '', '.') }}đ</td>
-                <td class="column-4">{{ $cart->pty }}</td>
+                <td class="column-2">{{ $orderItem->product->name }}</td>
+                <td class="column-3">{{ number_format($orderItem->price, 0, '', '.') }}đ</td>
+                <td class="column-4">{{ $orderItem->pty }}</td>
                 <td class="column-5">${{ number_format($price, 0, '', '.') }}đ</td>
             </tr>
             @endforeach

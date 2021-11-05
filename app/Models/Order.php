@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+// use App\Models\OrderItem;
 
-class Customer extends Model
+class Order extends Model
 {
     use HasFactory;
 
@@ -13,11 +14,11 @@ class Customer extends Model
         'name',
         'phone',
         'address',
-        'email'
+        'email',
     ];
 
-    public function carts()
+    public function orders()
     {
-        return $this->hasMany(Cart::class, 'customer_id', 'id');
+        return $this->hasMany(OrderItem::class, 'order_id', 'id');
     }
 }

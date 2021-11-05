@@ -3,8 +3,8 @@
 namespace App\Http\Services;
 
 use App\Models\Product;
-use App\Models\Customer;
-use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -64,14 +64,14 @@ class CartService
             if (is_null($carts))
                 return false;
 
-            $customer = Customer::create([
+            $order = Order::create([
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
                 'address' => $request->input('address'),
-                'email' => $request->input('email')
+                'email' => $request->input('email'),
             ]);
-
-            $this->infoProductCart($carts, $customer->id);
+            // dd($order);
+            $this->infoProductCart($carts, $order->id);
             DB::commit();
             Session::flash('success', 'Đặt Hàng Thành Công');
             Session::forget('carts');
@@ -82,26 +82,26 @@ class CartService
         }
         return true;
     }
-    protected function infoProductCart($carts, $customer_id)
+    protected function infoProductCart($carts, $order_id)
     {
         $productId = array_keys($carts);
-        $products = Product::Select('id', 'img', 'name', 'price')
+        $products = Product::select('id', 'img', 'name', 'price')
         ->whereIn('id', $productId)
         ->get();
 
         $data=[];
         foreach ($products as $product){
             $data[] = [
-                'customer_id' => $customer_id,
+                'order_id' => $order_id,
                 'product_id' => $product->id,
                 'pty' => $carts[$product->id],
                 'price' => $product->price
             ];
         }
-        return Cart::insert($data);
+        return OrderItem::insert($data);
     }
-    public function getCustomer()
+    public function getOrder()
     {
-        return Customer::orderByDesc('id')->paginate(15);
+        return Order::orderByDesc('id')->paginate(15);
     }
 }
