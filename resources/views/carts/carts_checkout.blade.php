@@ -90,7 +90,7 @@
                         </div>
                     </div>
 
-                    {{-- <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                    <div class="flex-w flex-t bor12 p-t-15 p-b-30">
 
                         <div class="size-100 p-r-18 p-r-0-sm w-full-ssm">
                             
@@ -121,29 +121,11 @@
                                     
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
-                    <?php 
-                        $customer_id = Session::get('customer_id');
-                        if($customer_id!=NULL){
-                    ?>
-                        <a class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
-                        href="carts_checkout">
+                    <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
                         Thanh Toán
-                        </a>
-                        <?php
-                    }else{
-                        ?>
-                        <a class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
-                        href="login-checkout">
-                        Thanh Toán
-                        </a>
-                        <?php
-                    }
-                        ?>
-                    
-
-                    
+                    </button>
                 </div>
             </div>
         </div>

@@ -40,15 +40,46 @@
 
                 <!-- Icon header -->
                 <div class="wrap-icon-header flex-w flex-r-m">
-                    <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-                        <i class="zmdi zmdi-search"></i>
-                    </div>
+                   
 
-                    <a href="carts">
+                    <a href="/carts">
                         <div class="icon-header-item cl2  trans-04 p-l-22 p-r-11">
-                            <i class="zmdi zmdi-shopping-cart"></i>
+                            <i class="fa fa-shopping-cart">Giỏ Hàng</i>
                         </div>
                     </a>
+                    <?php 
+                        $customer_id = Session::get('customer_id');
+                        if($customer_id!=NULL){
+                        ?>
+                    <a href="/history/{{ $customer_id }}">
+                        <div class="icon-header-item cl2  trans-04 p-l-22 p-r-11">
+                            <i class="fa fa-history">Lịch sử order</i>
+                        </div>
+                    </a>
+                    <?php
+                    }
+                    ?>
+
+                    <?php
+                        $customer_id = Session::get('customer_id');
+                        if($customer_id!=NULL){
+                    ?>
+                    <a href="/logout-checkout">
+                        <div class="icon-header-item cl2  trans-04 p-l-22 p-r-11">
+                            <i class="fa fa-lock">Đăng Xuất</i>
+                        </div>
+                    </a>
+                    <?php
+                }else{
+                    ?>
+                    <a href="login-checkout">
+                        <div class="icon-header-item cl2  trans-04 p-l-22 p-r-11">
+                            <i class="zmdi zmdi-lock">Đăng Nhập</i>
+                        </div>
+                    </a>
+                    <?php
+                }       
+                    ?>
                 </div>
             </nav>
         </div>	

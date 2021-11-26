@@ -65,8 +65,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 @font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/Poppins/Poppins-Bold.ttf'); 
+  font-family: Alegreya;
+  src: url('../fonts/Poppins/Alegreya.ttf'); 
 }
 
 @font-face {
@@ -483,7 +483,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .icon-header-item {
   position: relative;
-  font-size: 26px;
+  font-size: 20px;
   line-height: 1;
   cursor: pointer;
 }

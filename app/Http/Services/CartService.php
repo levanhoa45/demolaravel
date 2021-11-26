@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Customer;
 use App\Models\OrderItem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
@@ -64,7 +65,9 @@ class CartService
             if (is_null($carts))
                 return false;
 
+
             $order = Order::create([
+                'customer_id' => Session::get('customer_id'),
                 'name' => $request->input('name'),
                 'phone' => $request->input('phone'),
                 'address' => $request->input('address'),
@@ -82,6 +85,7 @@ class CartService
         }
         return true;
     }
+
     protected function infoProductCart($carts, $order_id)
     {
         $productId = array_keys($carts);
@@ -100,8 +104,16 @@ class CartService
         }
         return OrderItem::insert($data);
     }
+
+    
+
     public function getOrder()
     {
         return Order::orderByDesc('id')->paginate(15);
     }
+    public function getCustomer()
+    {
+        return Customer::orderByDesc('id')->paginate(10);
+    }
+
 }

@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Admin\HistoryController;
 
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 Route::post('admin/users/login/store', [LoginController::class, 'store']);
@@ -49,4 +49,20 @@ Route::get('san-pham/{id}-{slug}.html', [App\Http\Controllers\ProductController:
 Route::post('add-cart', [App\Http\Controllers\CartController::class, 'index']);
 Route::get('carts', [App\Http\Controllers\CartController::class, 'show']);
 Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
-Route::post('carts', [App\Http\Controllers\CartController::class, 'addCart']);
+Route::get('login-checkout', [App\Http\Controllers\CheckoutController::class, 'login_checkout']);
+Route::get('logout-checkout', [App\Http\Controllers\CheckoutController::class, 'logout_checkout']);
+Route::post('login-customer', [App\Http\Controllers\CheckoutController::class, 'login_customer']);
+Route::post('register_checkout', [App\Http\Controllers\CheckoutController::class, 'add_customer']);
+Route::get('register_checkout', [App\Http\Controllers\CheckoutController::class, 'register']);
+Route::post('carts_checkout', [App\Http\Controllers\CartController::class, 'addCart']);
+Route::get('carts_checkout', [App\Http\Controllers\CartController::class, 'carts_checkout']);
+Route::post('save-checkout-customer', [App\Http\Controllers\CheckoutController::class, 'save_checkout_customer']);
+Route::post('save-checkout-customer', [App\Http\Controllers\CheckoutController::class, 'order_place']);
+
+Route::get('history/{customer}', [App\Http\Controllers\HistoryController::class, 'history_customer']);
+Route::get('orders/view/{order}', [\App\Http\Controllers\HistoryController::class, 'show']);
+
+
+
+// Route::get('/send', [\App\Http\Controllers\MailController::class, 'sendmail']);
+// Route::get('/send-mail', [\App\Http\Controllers\MailController::class, 'send']);

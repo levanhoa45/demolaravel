@@ -5,6 +5,7 @@
         <thead>
         <tr>
             <th>Đơn Hàng</th>
+            <th>ID Customer</th>
             <th>Tên Khách Hàng</th>
             <th>Số Điện Thoại</th>
             <th>Địa Chỉ</th>
@@ -17,6 +18,7 @@
             @foreach($orders as $key => $order)
             <tr>
                 <td style="text-align: left">{{ $order->id }}</td>
+                <td>{{ $order->customer_id }}</td>
                 <td>{{ $order->name }}</td>
                 <td>{{ $order->phone }}</td>
                 <td>{{ $order->address }}</td>
